@@ -1,61 +1,106 @@
+// jshint esversion: 6
+
+const express = require("express");
+const bodyParser = require("body-parser");
+const request = require("request");
+
+const app = express();
+
+app.use(express.static("public"));
+
+app.use(bodyParser.urlencoded({extended: true}));
+
+app.listen(process.env.PORT || 3000, function(){
+  console.log("Server is running on port 3000");
+});
+
+app.get("/", function(req, res){
+  res.sendFile(__dirname + "/index.html");
+});
+
+app.post("/", function(req, res) {
+
+var firstName = req.body.fName;
+
+var lastName = req.body.lName;
+
+var email = req.body.Email;
+
+var data = {
+  members: [
+    {email_address: email,
+    status: "subscribed",
+    merge_fields: {
+      FNAME: firstName,
+      LNAME: lastName
+    }
+  }
+  ]
+};
+
+var jsonData = JSON.stringify(data);
+
+var options = {
+  url: "https://us3.api.mailchimp.com/3.0/lists/e480aad3db",
+  method: "POST",
+  headers: {
+"Authorization": "morrisravis 7c413ee8f25c742c9c869b0b5ae1bd50-us3"
+},
+body: jsonData
+};
+
+request(options, function(error, response, body){
+if (error) {
+  res.sendFile(__dirname + "/failure.html");
+} else {
+  if (response.statusCode === 200) {
+    res.sendFile(__dirname + "/success.html");
+  } else {
+    res.sendFile(__dirname + "/failure.html");
+  }
+}
+});
+
+
+app.post("/failure", function(req, res) {
+  res.redirect("/");
+});
+
+app.post("/success", function(req, res) {
+  res.redirect("/");
+});
 
 
 
+console.log(firstName, lastName, email);
 
-
-
-
-
-// When you click the mail icon, the form will pop up allowing you to submit a message to the SoundOff Team
-
-$(".mail").click(function () {
- $("#mailPopUp").css("display", "flex");
- });
-
-
-// This will close the form if you click the close button rather than the submit button
-$(".closeForm").click(function() {
-  $("#mailPopUp").css("display", "none");
 });
 
 
 
 
-// When you click on the submit button after typing out a message, the checkmark image and the sent confirmation will appear
-$(".submitMessage").click(function() {
-$("#mailPopUp").css("display", "none");
-$(".formImage").css("display", "flex");
-$(".emailMessage").css("display", "flex");
-});
+// API KEY MAILCHIMP
+// 7c413ee8f25c742c9c869b0b5ae1bd50-us3
 
-// This creates a message when you hover over the "howto" button
-$(".howto1").hover(function() {
-        $(this).css('cursor', 'pointer').attr('title', 'Beta Contest Winner Announced June 20th 2019');
-        },
-        function() {
-          $(this).css('cursor', 'auto');
-        });
-
-
-// This creates a message when you hover over the "howto" button
-$(".howto2").hover(function() {
-          $(this).css('cursor', 'pointer').attr('title', 'Artist Submit through SoundOff Music App');
-        }, function() {
-          $(this).css('cursor', 'auto');
-        });
-
-
-// This creates a message when you hover over the "howto" button
-$(".howto3").hover(function() {
-          $(this).css('cursor', 'pointer').attr('title', 'Fans vote through SoundOff Music App');
-        }, function() {
-          $(this).css('cursor', 'auto');
-        });
+// Audience ID MAILCHIMP
+// e480aad3db
 
 
 
-// When you click on checkmark after submitting a Message it'll disappear and then you can submit another Message
-$(".formImage").on("click", function () {
-  $(".formImage").hide();
-  $(".emailMessage").hide();
-});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
