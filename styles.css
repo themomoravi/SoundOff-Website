@@ -6,6 +6,7 @@
   }
 
 h1 {
+
   font-family: 'Montserrat', sans-serif;
   font-size: 3rem;
   font-weight: 900;
@@ -19,12 +20,16 @@ h1 {
 }
 
 h3{
-  font-family: "Montserrat-Bold";
+  /* font-family: 'Montserrat', sans-serif; */
+  /* font-family: 'Poppins', sans-serif; */
+  /* font-family: "Montserrat-Bold"; */
   font-weight: 600;
+  font-weight: bold;
 }
 
 p{
-  color: pink;
+
+  color: #ffa1c5;
   font-weight: bold;
 }
 
@@ -48,7 +53,8 @@ h2{
 }
 
 .navbar-brand{
-  font-family: "Ubuntu";
+  font-family: 'Poppins', sans-serif;
+  /* font-family: "Ubuntu"; */
   font-size: 2.5rem;
   color: #fff;
 }
@@ -63,7 +69,8 @@ color: #240041;
 
 .nav-link{
   font-size: 1.2rem;
-  font-family: "Montserrat-Light", sans-serif;
+  font-family: 'Poppins', sans-serif;
+  /* font-family: "Montserrat-Light", sans-serif; */
   color: #fff;
   font-weight: 400;
 }
@@ -74,7 +81,7 @@ color: #240041;
 
 /* Download Button */
 .download-button{
-  margin: 3% 5% 3% 0;
+margin-top: 10px;
 }
 
 
@@ -125,7 +132,7 @@ color: #240041;
 }
 
 .icons:hover{
-  color: pink;
+  color:  #ffa1c5;
 }
 
 /* Testimonials Section */
@@ -180,6 +187,7 @@ color: #240041;
   color: #fff;
   padding: 7% 2%;
   text-align: center;
+  /* font-family: 'Poppins', sans-serif; */
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -190,7 +198,7 @@ color: #240041;
 
 /* Footer Section */
 
-#footer {
+#Waitlist {
   background-color: #fff;
   text-align: center;
 }
@@ -220,7 +228,7 @@ color: #240041;
 .submit{
   text-align: center;
   align: center;
-  margin: 50px 10px;
+  /* margin: 50px 10px; */
 }
 
 .formImage {
@@ -248,4 +256,58 @@ color: #240041;
 
 .fa-instagram:hover {
     color: #240041;
+}
+
+.emailPlace{
+  margin: 10px;
+}
+
+
+
+
+.subscribeForm{
+  margin-top: 30px;
+  margin-bottom: 100px;
+}
+
+
+
+.mb4{
+  border-radius: 50%;
+}
+
+
+.mb-3{
+  white-space: nowrap;
+  padding: 20px;
+}
+
+
+
+
+.form-signin{
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+.top{
+ margin-bottom: -1px;
+ border-bottom-right-radius: 0;
+ border-bottom-left-radius: 0;
+}
+
+.middle{
+border-radius: 0;
+}
+
+.bottom{
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.copyright{
+  margin-top: 100px;
 }
