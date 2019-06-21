@@ -79,12 +79,6 @@ console.log(firstName, lastName, email);
 
 
 
-// API KEY MAILCHIMP
-// 7c413ee8f25c742c9c869b0b5ae1bd50-us3
-
-// Audience ID MAILCHIMP
-// e480aad3db
-
 
 
 
